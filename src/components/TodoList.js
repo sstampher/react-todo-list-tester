@@ -3,7 +3,11 @@ import { TodoItems } from './TodoItems'
 import './TodoList.css'
 
 export const TodoList = () => {
-  // you can use whatever you'd like for state management
+  // The schema for a todo item expects a key and a text field
+  // You can see it being used in TodoItems.js
+  // eg: { key: 'someUniqueKey', text: 'The Text of the Item' }
+
+  // You can use whatever you'd like for state management
   // below is an example of using useState
   // https://reactjs.org/docs/hooks-state.html
 
@@ -19,7 +23,7 @@ export const TodoList = () => {
   }
 
   const deleteItem = key => {
-    // handle when a task is clicked
+    // handle deleting when a task is clicked
   }
 
   return (
