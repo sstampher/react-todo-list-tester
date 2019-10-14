@@ -1,4 +1,3 @@
-// import React, { useState } from 'react'
 import React, { Component } from 'react';
 import { TodoItems } from './TodoItems';
 import './TodoList.css'
@@ -28,17 +27,19 @@ export class TodoList extends Component {
 
  handleInput (e){
     this.setState({
+      value: e.target.value,
       text: {'text':e.target.value, 'key':e.target.value}
     })
   }
 
  handleSubmit = e => {
    e.preventDefault();
+   if(this.state.text.text){
     this.setState({
-      items: [...this.state.items, this.state.text]
+      items: [...this.state.items, this.state.text],
+      value: ''
     })
-    console.log(this.text)
-    
+  }  
   }
 
  deleteItem = key => {
@@ -55,7 +56,7 @@ export class TodoList extends Component {
           <input
             placeholder="enter task"
             onChange={this.handleInput}
-            value={this.text}
+            value={this.state.value}
             className="new-task"
             data-testid="new-task"
             autoFocus
